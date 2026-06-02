@@ -1602,3 +1602,149 @@ footer {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
 }
+/* ========== AJUSTES EXCLUSIVOS PARA MÓVIL (MÁXIMO 768px) ========== */
+@media (max-width: 768px) {
+
+    /* ----- SECCIÓN TRABAJOS (título + botón) ----- */
+    .jobs-section > div:first-child {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center;
+        margin-bottom: 30px !important;
+    }
+    .jobs-section > div:first-child h2 {
+        position: static !important;
+        margin-bottom: 12px !important;
+        font-size: 1.3rem !important;
+        pointer-events: auto !important;
+    }
+    .jobs-section > div:first-child button {
+        position: static !important;
+        margin-top: 0 !important;
+        padding: 8px 18px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* ----- BOTONES DE CATEGORÍA ----- */
+    .career-selector {
+        gap: 8px;
+    }
+    .career-btn {
+        padding: 6px 12px !important;
+        font-size: 0.7rem !important;
+        white-space: normal !important;
+        word-break: break-word;
+        text-align: center;
+        flex: 1 0 auto;
+        max-width: 100%;
+    }
+
+    /* ----- CARRUSEL: tarjetas más compactas y centradas ----- */
+    .carrusel-container {
+        padding: 10px 0 40px 0 !important;
+    }
+    .carrusel-grid {
+        gap: 15px !important;
+        padding: 5px !important;
+    }
+    .job-card {
+        width: 80vw !important;          /* Ocupa el 80% del ancho de la pantalla */
+        min-width: 240px !important;
+        max-width: 300px !important;
+        padding: 16px !important;
+    }
+    .job-title {
+        font-size: 0.85rem !important;
+    }
+    .job-location {
+        font-size: 0.7rem !important;
+        padding: 3px 8px !important;
+    }
+    .job-card .btn-secondary {
+        padding: 6px 12px !important;
+        font-size: 0.65rem !important;
+    }
+
+    /* ----- FLECHAS DEL CARRUSEL (más pequeñas y pegadas) ----- */
+    .carrusel-btn {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.9rem !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+    }
+    .carrusel-btn.prev {
+        left: -5px !important;
+    }
+    .carrusel-btn.next {
+        right: -5px !important;
+    }
+
+    /* ----- PUNTOS INDICADORES ----- */
+    .carrusel-indicators {
+        gap: 8px;
+        margin-top: 10px;
+    }
+    .carrusel-dot {
+        width: 6px;
+        height: 6px;
+    }
+    .carrusel-dot.active {
+        width: 16px;
+    }
+
+    /* ----- FOOTER: mejorar en móvil ----- */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+        text-align: center;
+    }
+    .footer-col h4 {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+    .footer-col ul li a {
+        font-size: 0.75rem;
+    }
+    .footer-social {
+        justify-content: center;
+        gap: 15px;
+    }
+    .social-icon-footer {
+        width: 34px;
+        height: 34px;
+    }
+    .social-icon-footer img {
+        width: 16px !important;
+        height: 16px !important;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .footer-logo-area {
+        justify-content: center;
+    }
+    .footer-brand {
+        font-size: 1rem;
+    }
+    .footer-copyright p {
+        font-size: 0.65rem;
+    }
+}
+
+/* ========== AJUSTES PARA PANTALLAS MUY PEQUEÑAS (≤480px) ========== */
+@media (max-width: 480px) {
+    .job-card {
+        width: 85vw !important;
+        min-width: 220px !important;
+    }
+    .job-title {
+        font-size: 0.8rem !important;
+    }
+    .career-btn {
+        font-size: 0.65rem !important;
+        padding: 4px 10px !important;
+    }
+}
