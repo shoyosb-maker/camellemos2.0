@@ -1,0 +1,360 @@
+/* ========== OFERTAS DE TRABAJO ========== */
+.jobs-section {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0B2B5E;
+    font-weight: 700;
+}
+
+.career-selector {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.career-btn {
+    background: rgba(11, 43, 94, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(11, 43, 94, 0.2);
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #0B2B5E;
+}
+
+.career-btn.active, .career-btn:hover {
+    background: linear-gradient(135deg, #0B2B5E, #1E4A7A);
+    color: white;
+    transform: translateY(-2px);
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(11, 43, 94, 0.3);
+}
+
+/* ========== CARRUSEL DE OFERTAS ========== */
+
+/* Contenedor principal del carrusel */
+.carrusel-container {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+    padding: 20px 10px 50px 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 32px;
+    backdrop-filter: blur(4px);
+}
+
+/* Wrapper que contiene todas las tarjetas - scroll oculto */
+.carrusel-wrapper {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+/* Ocultar scrollbar en Chrome, Safari, Edge */
+.carrusel-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* Grid interno del carrusel */
+.carrusel-grid {
+    display: flex;
+    gap: 24px;
+    padding: 10px 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Tarjetas de trabajos con efecto Glass */
+.job-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 20px 18px;
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cada tarjeta dentro del carrusel */
+.carrusel-grid .job-card {
+    flex: 0 0 calc(33.333% - 16px);
+    scroll-snap-align: start;
+    min-width: 280px;
+}
+
+.job-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* Cabecera de la tarjeta */
+.job-card > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.job-title {
+    font-weight: 800;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #0B2B5E, #2C3E66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.3;
+    flex: 1;
+}
+
+.job-badge {
+    background: linear-gradient(135deg, #F59E0B, #e67e22);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.job-location {
+    color: #4b5563;
+    font-size: 0.85rem;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 5px 12px;
+    border-radius: 30px;
+    width: fit-content;
+    backdrop-filter: blur(4px);
+}
+
+/* Botón dentro de la tarjeta */
+.job-card .btn-secondary {
+    margin-top: 16px;
+    padding: 10px 16px;
+    font-size: 0.75rem;
+    width: 100%;
+    justify-content: center;
+    background: rgba(11, 43, 94, 0.08);
+    border: 1px solid rgba(11, 43, 94, 0.25);
+    color: #0B2B5E;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(4px);
+}
+
+.job-card .btn-secondary:hover {
+    background: linear-gradient(135deg, #F59E0B, #e67e22);
+    color: white;
+    border-color: transparent;
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+/* ========== BOTONES DE NAVEGACIÓN DEL CARRUSEL ========== */
+.carrusel-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: rgba(11, 43, 94, 0.85);
+    backdrop-filter: blur(12px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+.carrusel-btn:hover {
+    background: linear-gradient(135deg, #F59E0B, #e67e22);
+    transform: translateY(-50%) scale(1.15);
+    border-color: transparent;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+    opacity: 1;
+}
+
+.carrusel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carrusel-btn.prev {
+    left: 5px;
+}
+
+.carrusel-btn.next {
+    right: 5px;
+}
+
+/* ========== INDICADORES (PUNTOS) ========== */
+.carrusel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 5;
+}
+
+.carrusel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(11, 43, 94, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.carrusel-dot.active {
+    width: 24px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #F59E0B, #e67e22);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+}
+
+.carrusel-dot:hover {
+    background: #F59E0B;
+    transform: scale(1.2);
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablet: 2 columnas */
+@media (max-width: 992px) {
+    .carrusel-grid .job-card {
+        flex: 0 0 calc(50% - 12px);
+    }
+    
+    .carrusel-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+    
+    .carrusel-btn.prev {
+        left: 5px;
+    }
+    
+    .carrusel-btn.next {
+        right: 5px;
+    }
+}
+
+/* Móvil: 1 columna */
+@media (max-width: 768px) {
+    .carrusel-grid .job-card {
+        flex: 0 0 calc(100% - 20px);
+    }
+    
+    .carrusel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        background: rgba(11, 43, 94, 0.95);
+    }
+    
+    .carrusel-btn.prev {
+        left: 0px;
+    }
+    
+    .carrusel-btn.next {
+        right: 0px;
+    }
+    
+    .jobs-section {
+        padding: 25px 20px;
+    }
+    
+    .career-btn {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+    
+    .job-card {
+        padding: 16px;
+    }
+    
+    .job-title {
+        font-size: 0.95rem;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    .carrusel-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+    
+    .carrusel-btn.prev {
+        left: 0px;
+    }
+    
+    .carrusel-btn.next {
+        right: 0px;
+    }
+    
+    .carrusel-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .carrusel-dot.active {
+        width: 20px;
+    }
+}
