@@ -1,5 +1,10 @@
 /* ========== CARRUSEL 3D CON EFECTO PERSPECTIVE ========== */
-/* Versión responsive: flechas más bajas para que no se mezclen con las tarjetas */
+/* Las flechas quedan debajo del carrusel, fuera del área de las tarjetas */
+
+.carousel-wrapper-3d {
+    position: relative;
+    margin: 20px 0 60px;  /* Margen inferior extra para espacio de las flechas */
+}
 
 .carousel-container {
     perspective: 2000px;
@@ -191,14 +196,13 @@
     box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
 }
 
-/* ========== CONTROLES DE NAVEGACIÓN - FLECHAS MÁS BAJAS ========== */
+/* ========== CONTROLES DE NAVEGACIÓN - FUERA DEL CARRUSEL (DEBAJO) ========== */
 .carousel-nav-controls {
-    position: absolute;
-    bottom: 2rem;       /* Antes era 1rem, ahora más separado de las tarjetas */
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;  /* Ya no es absoluto, fluye debajo del carrusel */
     display: flex;
+    justify-content: center;
     gap: 1.5rem;
+    margin-top: 2rem;    /* Separación superior respecto a las tarjetas */
     z-index: 20;
 }
 
@@ -258,11 +262,11 @@
         transform: translate3d(500px, 0, -450px) rotateY(-45deg);
     }
     .carousel-nav-controls {
-        bottom: 1.5rem;   /* En tablet también se separan ligeramente */
+        margin-top: 1.5rem;
     }
 }
 
-/* Móviles (ancho < 768px) - flechas ocultas (opcional, puedes mostrarlas si quieres) */
+/* Móviles (ancho < 768px) - aquí ocultamos las flechas porque usamos swipe */
 @media (max-width: 768px) {
     .carousel-container {
         height: 460px;
@@ -297,7 +301,7 @@
         padding: 0.5rem 1rem;
         font-size: 0.65rem;
     }
-    /* En móvil ocultamos las flechas para usar solo el swipe táctil */
+    /* En móvil ocultamos las flechas (solo swipe táctil) */
     .carousel-nav-controls {
         display: none;
     }
