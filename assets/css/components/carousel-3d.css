@@ -1,4 +1,4 @@
-/* ========== CARRUSEL 3D CON EFECTO PERSPECTIVE ========== */
+/* ========== CARRUSEL 3D CON EFECTO PERSPECTIVE (VERSIÓN DESKTOP) ========== */
 
 .carousel-container {
     perspective: 2000px;
@@ -190,7 +190,7 @@
     box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
 }
 
-/* ========== CONTROLES DE NAVEGACIÓN - FLECHAS MEJORADAS ========== */
+/* ========== CONTROLES DE NAVEGACIÓN - FLECHAS ========== */
 .carousel-nav-controls {
     position: absolute;
     bottom: 1rem;
@@ -232,24 +232,80 @@
     transform: scale(0.95);
 }
 
-/* Versión alternativa con solo íconos (sin fondo) - se activa opcionalmente */
-.carousel-nav-controls.transparent .carousel-nav-btn {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    backdrop-filter: blur(4px);
-}
-
-.carousel-nav-controls.transparent .carousel-nav-btn:hover {
-    background: #F59E0B;
-    color: #0B2B5E;
-    border-color: #F59E0B;
-}
-
-/* ========== RESPONSIVE ========== */
+/* ========== RESPONSIVE MÓVIL - CAMBIA A CARRUSEL HORIZONTAL CON SCROLL ========== */
 @media (max-width: 768px) {
+    /* Reset del contenedor para modo scroll horizontal */
     .carousel-container {
-        height: 500px;
+        perspective: none;
+        height: auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .carousel-track {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: max-content;
+        transform: none;
+        transition: none;
+        position: static;
+        padding: 20px 15px;
+    }
+    
+    .carousel-item {
+        position: relative;
+        width: 280px;
+        height: auto;
+        min-height: 400px;
+        left: auto;
+        top: auto;
+        margin: 0;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: blur(0) !important;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .carousel-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    /* Ocultar flechas de navegación en móvil (se usa scroll táctil) */
+    .carousel-nav-controls {
+        display: none;
+    }
+    
+    /* Ajuste de glass card en móvil */
+    .carousel-item .glass-card {
+        padding: 1rem;
+    }
+    
+    .carousel-item .job-title {
+        font-size: 1.1rem;
+    }
+    
+    .carousel-item .job-description {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .carousel-item .glowing-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* Ajuste para tablets (entre 769px y 1024px) - mantener 3D pero más compacto */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .carousel-container {
+        height: 520px;
     }
     
     .carousel-item {
@@ -260,46 +316,39 @@
     }
     
     .carousel-item.prev {
-        transform: translate3d(-200px, 0, -200px) rotateY(35deg);
+        transform: translate3d(-240px, 0, -220px) rotateY(35deg);
     }
     
     .carousel-item.next {
-        transform: translate3d(200px, 0, -200px) rotateY(-35deg);
+        transform: translate3d(240px, 0, -220px) rotateY(-35deg);
+    }
+    
+    .carousel-item.hidden-left {
+        transform: translate3d(-500px, 0, -450px) rotateY(45deg);
+    }
+    
+    .carousel-item.hidden-right {
+        transform: translate3d(500px, 0, -450px) rotateY(-45deg);
     }
     
     .carousel-item .job-title {
-        font-size: 1.1rem;
-    }
-    
-    .carousel-nav-btn {
-        width: 2.8rem;
-        height: 2.8rem;
-        font-size: 1.2rem;
-    }
-    
-    .carousel-nav-btn i {
         font-size: 1.2rem;
     }
 }
 
-@media (max-width: 640px) {
+/* Ajuste para móviles pequeños */
+@media (max-width: 480px) {
     .carousel-item {
         width: 260px;
-        height: 380px;
-        margin-left: -130px;
-        margin-top: -190px;
+        min-height: 380px;
     }
     
-    .carousel-item.prev {
-        transform: translate3d(-140px, 0, -180px) rotateY(35deg);
+    .carousel-track {
+        gap: 15px;
+        padding: 15px 12px;
     }
     
-    .carousel-item.next {
-        transform: translate3d(140px, 0, -180px) rotateY(-35deg);
-    }
-    
-    .carousel-nav-btn {
-        width: 2.5rem;
-        height: 2.5rem;
+    .carousel-item .glass-card {
+        padding: 0.9rem;
     }
 }
