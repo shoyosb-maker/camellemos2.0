@@ -1,4 +1,5 @@
 /* ========== CARRUSEL 3D CON EFECTO PERSPECTIVE ========== */
+/* Versión responsive: se reducen tamaños en móvil pero se conserva el 3D */
 
 .carousel-container {
     perspective: 2000px;
@@ -232,51 +233,101 @@
     transform: scale(0.95);
 }
 
-/* ========== RESPONSIVE (solo ajustes de tamaño, sin cambiar el comportamiento) ========== */
-@media (max-width: 768px) {
+/* ========== RESPONSIVE 3D (solo tamaños, mantiene efecto) ========== */
+/* Tablets y móviles grandes */
+@media (max-width: 992px) {
     .carousel-container {
-        height: 500px;
+        height: 520px;
     }
-    
     .carousel-item {
         width: 280px;
         height: 400px;
         margin-left: -140px;
         margin-top: -200px;
     }
-    
     .carousel-item.prev {
-        transform: translate3d(-200px, 0, -200px) rotateY(35deg);
+        transform: translate3d(-240px, 0, -220px) rotateY(35deg);
     }
-    
     .carousel-item.next {
-        transform: translate3d(200px, 0, -200px) rotateY(-35deg);
+        transform: translate3d(240px, 0, -220px) rotateY(-35deg);
     }
-    
-    .carousel-item .job-title {
-        font-size: 1.1rem;
+    .carousel-item.hidden-left {
+        transform: translate3d(-500px, 0, -450px) rotateY(45deg);
     }
-    
-    .carousel-nav-btn {
-        width: 2.8rem;
-        height: 2.8rem;
-        font-size: 1.2rem;
+    .carousel-item.hidden-right {
+        transform: translate3d(500px, 0, -450px) rotateY(-45deg);
     }
 }
 
-@media (max-width: 480px) {
+/* Móviles (ancho < 768px) */
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 460px;
+        margin-bottom: 20px;
+    }
     .carousel-item {
         width: 260px;
         height: 380px;
         margin-left: -130px;
         margin-top: -190px;
     }
-    
     .carousel-item.prev {
-        transform: translate3d(-140px, 0, -180px) rotateY(35deg);
+        transform: translate3d(-180px, 0, -180px) rotateY(35deg);
     }
-    
     .carousel-item.next {
-        transform: translate3d(140px, 0, -180px) rotateY(-35deg);
+        transform: translate3d(180px, 0, -180px) rotateY(-35deg);
+    }
+    .carousel-item.hidden-left {
+        transform: translate3d(-400px, 0, -380px) rotateY(45deg);
+    }
+    .carousel-item.hidden-right {
+        transform: translate3d(400px, 0, -380px) rotateY(-45deg);
+    }
+    .carousel-item .job-title {
+        font-size: 1rem;
+    }
+    .carousel-item .job-description {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    .carousel-item .glowing-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.65rem;
+    }
+    .carousel-nav-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Móviles muy pequeños (ancho < 480px) */
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 420px;
+    }
+    .carousel-item {
+        width: 240px;
+        height: 360px;
+        margin-left: -120px;
+        margin-top: -180px;
+    }
+    .carousel-item.prev {
+        transform: translate3d(-140px, 0, -160px) rotateY(35deg);
+    }
+    .carousel-item.next {
+        transform: translate3d(140px, 0, -160px) rotateY(-35deg);
+    }
+    .carousel-item.hidden-left {
+        transform: translate3d(-320px, 0, -320px) rotateY(45deg);
+    }
+    .carousel-item.hidden-right {
+        transform: translate3d(320px, 0, -320px) rotateY(-45deg);
+    }
+    .carousel-item .job-title {
+        font-size: 0.9rem;
+    }
+    .carousel-item .glass-card {
+        padding: 0.8rem;
     }
 }
