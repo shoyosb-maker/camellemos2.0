@@ -1,0 +1,130 @@
+/* ========== TIPOGRAFÍA BASE OPTIMIZADA ========== */
+
+/* Configuración global de fuentes */
+:root {
+    --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-headings: 'Poppins', var(--font-primary);
+}
+
+/* Estilos generales de texto */
+body {
+    font-family: var(--font-primary);
+    color: #111827;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+/* Títulos principales */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0B2B5E;
+    letter-spacing: -0.02em;
+}
+
+/* Tamaños de títulos optimizados */
+h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; }
+h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.25rem; font-weight: 600; }
+h5 { font-size: 1.1rem; font-weight: 600; }
+h6 { font-size: 1rem; font-weight: 600; }
+
+/* Párrafos */
+p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+/* Textos pequeños */
+small, .text-small {
+    font-size: 0.875rem;
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+/* Textos grandes */
+.text-large {
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+/* Textos destacados */
+.text-highlight {
+    color: #F59E0B;
+    font-weight: 600;
+}
+
+/* Enlaces */
+a {
+    color: #0B2B5E;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #F59E0B;
+}
+
+/* Listas */
+ul, ol {
+    list-style: none;
+}
+
+/* Negritas */
+strong, b {
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Cursivas */
+em, i {
+    font-style: italic;
+}
+
+/* Navbar y botones */
+.navbar button, .btn-primary, .btn-secondary, .btn-action {
+    font-family: var(--font-headings);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+/* Badge */
+.badge-hard span {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Tarjetas */
+.job-title, .service-card-front h3, .service-card-back h4 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem;
+    }
+    
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    h4 { font-size: 1.1rem; }
+    p { font-size: 0.9rem; line-height: 1.6; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.3rem; }
+}

@@ -1,0 +1,26 @@
+[
+    {
+        "keywords": ["precio", "costos", "cuánto cuesta", "valor", "plan", "mensualidad", "pago"],
+        "response": "🐪 Nuestro Plan Élite tiene un costo de **$49 USD al mes** (o $399 anual). Incluye capacitación completa, revisión de HV con IA, entrevistas mock y postulación a vacantes estratégicas. ¿Te gustaría más información? Puedes contactarnos por WhatsApp al 3177366474 para una asesoría personalizada."
+    },
+    {
+        "keywords": ["hoja de vida", "hv", "curriculum", "currículum", "cv", "mejorar mi hoja", "optimizar"],
+        "response": "📄 ¡Excelente! En Camellemos ofrecemos **revisión de hoja de vida con IA**. Analizamos tu HV con tecnología ATS (filtros automatizados), detectamos áreas de mejora y te entregamos una versión optimizada. ¿Quieres una revisión gratuita inicial? Escríbenos al WhatsApp 3177366474."
+    },
+    {
+        "keywords": ["entrevista", "preparación entrevista", "mock", "simulación", "cómo prepararme", "preguntas entrevista"],
+        "response": "🎯 Te ayudamos a prepararte para entrevistas con **sesiones de entrevistas mock** personalizadas. Simulamos escenarios reales con feedback de reclutadores expertos. Incluye técnicas de storytelling y negociación salarial. ¿Agendamos una sesión de prueba? Contáctanos por WhatsApp."
+    },
+    {
+        "keywords": ["outsourcing", "postular", "vacantes", "aplicar", "empleo", "trabajo", "conseguir empleo"],
+        "response": "💼 Con nuestro servicio de **Outsourcing Élite** te postulamos automáticamente a más de 50 vacantes estratégicas por mes, alineadas con tu perfil. Además, te preparamos para cada proceso. ¿Quieres que revisemos tu perfil? Escríbenos al 3177366474."
+    },
+    {
+        "keywords": ["contacto", "contactar", "teléfono", "whatsapp", "número", "escribir", "hablar con alguien"],
+        "response": "📞 Puedes contactarnos a través de nuestro WhatsApp **3177366474** (respuesta en menos de 5 minutos). También puedes escribirnos al correo hola@camellemos.co o llamarnos de lunes a viernes de 8am a 6pm."
+    },
+    {
+        "keywords": ["horario", "horarios", "atención", "cuándo", "días", "oficina"],
+        "response": "⏰ Nuestro horario de atención es de **lunes a viernes de 8:00 am a 6:00 pm**. Los sábados atendemos de 9am a 1pm por chat y WhatsApp. ¡Siempre estamos para ayudarte!"
+    }
+]

@@ -1,0 +1,279 @@
+/* ========== BOTONES CON EFECTO DE BRILLO ========== */
+
+/* Contenedor de botones */
+.btn-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Botón primario (WhatsApp verde) */
+.btn-primary {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* Efecto de brillo que se desliza */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+    z-index: 0;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0px);
+}
+
+/* Botón secundario (borde azul) */
+.btn-secondary {
+    background: transparent;
+    border: 2px solid #0B2B5E;
+    color: #0B2B5E;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Efecto de relleno desde la izquierda */
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #0B2B5E;
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.btn-secondary:hover {
+    color: white;
+    border-color: #0B2B5E;
+}
+
+.btn-secondary:hover::before {
+    left: 0;
+}
+
+.btn-secondary:active {
+    transform: translateY(1px);
+}
+
+/* Botón de pago (para planes) */
+.btn-pay {
+    background: linear-gradient(135deg, #0B2B5E, #1E4A7A);
+    color: white;
+    width: 100%;
+    padding: 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.4s ease;
+}
+
+.btn-pay:hover::before {
+    left: 100%;
+}
+
+.btn-pay:hover {
+    background: #F59E0B;
+    color: #0B2B5E;
+    transform: translateY(-2px);
+}
+
+/* Botón flotante de WhatsApp y Chatbot */
+.whatsapp-float, .chatbot-float {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-float {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.chatbot-float {
+    background: linear-gradient(135deg, #0B2B5E, #1E4A7A);
+}
+
+/* Efecto de brillo circular para botones flotantes */
+.whatsapp-float::before, .chatbot-float::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.whatsapp-float:hover::before, .chatbot-float:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.whatsapp-float:hover, .chatbot-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Botón de login (para el admin, si se usa) */
+.btn-login-nav {
+    background: linear-gradient(135deg, #0B2B5E, #1E4A7A) !important;
+    color: white !important;
+    padding: 8px 22px !important;
+    border-radius: 50px !important;
+    margin-left: 12px !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.btn-login-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.4s ease;
+}
+
+.btn-login-nav:hover::before {
+    left: 100%;
+}
+
+.btn-login-nav:hover {
+    background: #F59E0B !important;
+    color: #0B2B5E !important;
+    transform: translateY(-2px);
+}
+
+/* Botón de acción general */
+.btn-action {
+    background: #F59E0B;
+    color: #0B2B5E;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-action:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(230, 126, 34, 0.3);
+}
+
+/* Botones dentro de tarjetas flip */
+.btn-flip {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.btn-flip:hover {
+    background: #F59E0B;
+    color: #0B2B5E;
+    border-color: #F59E0B;
+    transform: scale(1.02);
+}
+
+/* Efecto de clic para todos los botones */
+.btn-primary:active, .btn-secondary:active, .btn-pay:active,
+.whatsapp-float:active, .chatbot-float:active, .btn-action:active {
+    transform: scale(0.98);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .btn-login-nav {
+        padding: 6px 16px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .whatsapp-float, .chatbot-float {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+    }
+}

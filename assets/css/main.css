@@ -1,0 +1,155 @@
+/* ========== MAIN.CSS - IMPORTACIÓN DE TODOS LOS MÓDULOS ========== */
+
+/* Base */
+@import url('base/reset.css');
+@import url('base/variables.css');
+@import url('base/typography.css');
+
+/* Components */
+@import url('components/buttons.css');
+@import url('components/navbar.css');
+@import url('components/hero.css');
+@import url('components/jobs.css');
+@import url('components/carousel-3d.css');
+@import url('components/services.css');
+@import url('components/pricing.css');
+@import url('components/contact.css');
+@import url('components/footer.css');
+@import url('components/chatbot.css');
+@import url('components/bento-grid.css');
+
+/* Layouts */
+@import url('layouts/responsive.css');
+
+/* Utils */
+@import url('utils/animations.css');
+
+/* ========== ESTILOS DE RESPALDO ========== */
+.jobs-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+
+.job-card {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #f9fafc !important;
+    border-left: 4px solid #F59E0B !important;
+    padding: 18px 20px !important;
+    border-radius: 16px !important;
+    margin-bottom: 10px !important;
+}
+
+/* ========== Z-INDEX ========== */
+.chatbot-widget {
+    z-index: 10000 !important;
+}
+
+.float-buttons {
+    z-index: 10001 !important;
+}
+
+.menu-overlay {
+    z-index: 9999 !important;
+}
+
+.navbar {
+    z-index: 1000 !important;
+}
+
+/* ========== UTILIDADES GENERALES ========== */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========== ANIMACIONES DE PÁGINAS ========== */
+.page {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+#page-inicio { display: block; }
+#page-trabajos { display: none; }
+#page-capacitacion { display: none; }
+#page-planes { display: none; }
+#page-contacto { display: none; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== ANIMACIONES AL SCROLL ========== */
+.service-card, .job-card, .pricing-card, .contact-box, .social-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.service-card.visible, .job-card.visible, .pricing-card.visible,
+.contact-box.visible, .social-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card:nth-child(1) { transition-delay: 0.05s; }
+.service-card:nth-child(2) { transition-delay: 0.1s; }
+.service-card:nth-child(3) { transition-delay: 0.15s; }
+.service-card:nth-child(4) { transition-delay: 0.2s; }
+
+/* ========== ELEMENTOS FLOTANTES ========== */
+.floating-shape {
+    position: fixed;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.05);
+    z-index: 0;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* ========== PARTÍCULAS ========== */
+.particle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: #F59E0B;
+    border-radius: 50%;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: particleFloat 6s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0px) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-30px) scale(1.5); opacity: 0.6; }
+    100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+}
+
+/* ========== RESPONSIVE GLOBAL ========== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+}
