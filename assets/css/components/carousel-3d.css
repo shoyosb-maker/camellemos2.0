@@ -234,7 +234,6 @@
 
 /* ========== RESPONSIVE MÓVIL - CAMBIA A CARRUSEL HORIZONTAL CON SCROLL ========== */
 @media (max-width: 768px) {
-    /* Reset del contenedor para modo scroll horizontal */
     .carousel-container {
         perspective: none;
         height: auto;
@@ -277,12 +276,10 @@
         transform: translateY(-5px);
     }
     
-    /* Ocultar flechas de navegación en móvil (se usa scroll táctil) */
     .carousel-nav-controls {
         display: none;
     }
     
-    /* Ajuste de glass card en móvil */
     .carousel-item .glass-card {
         padding: 1rem;
     }
@@ -302,7 +299,6 @@
     }
 }
 
-/* Ajuste para tablets (entre 769px y 1024px) - mantener 3D pero más compacto */
 @media (min-width: 769px) and (max-width: 1024px) {
     .carousel-container {
         height: 520px;
@@ -336,7 +332,6 @@
     }
 }
 
-/* Ajuste para móviles pequeños */
 @media (max-width: 480px) {
     .carousel-item {
         width: 260px;
