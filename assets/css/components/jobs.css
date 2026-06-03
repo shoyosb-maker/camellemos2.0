@@ -8,6 +8,7 @@
     margin: 40px 0;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow-x: hidden;
 }
 
 .section-title {
@@ -19,7 +20,7 @@
     font-family: 'Poppins', 'Inter', sans-serif;
 }
 
-/* Selector de categorías (filtros) */
+/* Selector de categorías responsive */
 .career-selector-3d {
     display: flex;
     justify-content: center;
@@ -40,6 +41,7 @@
     color: #0B2B5E;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 .career-btn-3d.active,
@@ -55,6 +57,8 @@
 .carousel-wrapper-3d {
     position: relative;
     margin: 20px 0;
+    width: 100%;
+    overflow-x: auto;
 }
 
 /* Loading spinner */
@@ -110,11 +114,12 @@
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========== RESPONSIVE JOBS SECTION ========== */
 @media (max-width: 768px) {
     .jobs-section {
-        padding: 25px 20px;
-        margin: 30px 0;
+        padding: 25px 15px;
+        margin: 30px 15px;
+        border-radius: 24px;
     }
     
     .section-title {
@@ -122,14 +127,18 @@
         margin-bottom: 20px;
     }
     
-    .career-btn-3d {
-        padding: 8px 18px;
-        font-size: 0.8rem;
-    }
-    
     .career-selector-3d {
         gap: 8px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .career-btn-3d {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+        white-space: normal;
+        text-align: center;
+        flex: 1 0 auto;
     }
     
     .carousel-loading {
@@ -140,11 +149,21 @@
         padding: 40px;
         font-size: 1rem;
     }
+    
+    .jobs-section .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
     .jobs-section {
-        padding: 20px 16px;
+        padding: 20px 12px;
+        margin: 20px 12px;
         border-radius: 20px;
     }
     
@@ -153,14 +172,7 @@
     }
     
     .career-btn-3d {
-        padding: 6px 14px;
-        font-size: 0.75rem;
-    }
-    
-    .jobs-section .btn-primary {
-        padding: 10px 20px;
-        font-size: 0.8rem;
-        width: 100%;
-        justify-content: center;
+        padding: 6px 12px;
+        font-size: 0.7rem;
     }
 }
