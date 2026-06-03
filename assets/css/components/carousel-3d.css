@@ -1,10 +1,5 @@
 /* ========== CARRUSEL 3D CON EFECTO PERSPECTIVE ========== */
-/* Las flechas quedan debajo del carrusel, fuera del área de las tarjetas */
-
-.carousel-wrapper-3d {
-    position: relative;
-    margin: 20px 0 60px;  /* Margen inferior extra para espacio de las flechas */
-}
+/* Versión con flechas absolutas dentro del contenedor (visibles) */
 
 .carousel-container {
     perspective: 2000px;
@@ -196,13 +191,14 @@
     box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
 }
 
-/* ========== CONTROLES DE NAVEGACIÓN - FUERA DEL CARRUSEL (DEBAJO) ========== */
+/* ========== CONTROLES DE NAVEGACIÓN - FLECHAS DENTRO DEL CARRUSEL (VISIBLES) ========== */
 .carousel-nav-controls {
-    position: relative;  /* Ya no es absoluto, fluye debajo del carrusel */
+    position: absolute;
+    bottom: 1rem;      /* Ajusta este valor si quieres separarlas más: 1.5rem o 2rem */
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
     gap: 1.5rem;
-    margin-top: 2rem;    /* Separación superior respecto a las tarjetas */
     z-index: 20;
 }
 
@@ -237,8 +233,7 @@
     transform: scale(0.95);
 }
 
-/* ========== RESPONSIVE 3D (solo tamaños, mantiene efecto) ========== */
-/* Tablets y móviles grandes */
+/* ========== RESPONSIVE (solo tamaños, mantiene efecto) ========== */
 @media (max-width: 992px) {
     .carousel-container {
         height: 520px;
@@ -262,11 +257,10 @@
         transform: translate3d(500px, 0, -450px) rotateY(-45deg);
     }
     .carousel-nav-controls {
-        margin-top: 1.5rem;
+        bottom: 0.5rem;   /* Ajuste fino en tablet */
     }
 }
 
-/* Móviles (ancho < 768px) - aquí ocultamos las flechas porque usamos swipe */
 @media (max-width: 768px) {
     .carousel-container {
         height: 460px;
@@ -301,13 +295,11 @@
         padding: 0.5rem 1rem;
         font-size: 0.65rem;
     }
-    /* En móvil ocultamos las flechas (solo swipe táctil) */
     .carousel-nav-controls {
-        display: none;
+        bottom: 0.5rem;
     }
 }
 
-/* Móviles muy pequeños (ancho < 480px) */
 @media (max-width: 480px) {
     .carousel-container {
         height: 420px;
@@ -335,5 +327,8 @@
     }
     .carousel-item .glass-card {
         padding: 0.8rem;
+    }
+    .carousel-nav-controls {
+        bottom: 0.5rem;
     }
 }
