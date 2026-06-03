@@ -1,4 +1,4 @@
-/* ========== CARRUSEL 3D CON EFECTO PERSPECTIVE (VERSIÓN DESKTOP) ========== */
+/* ========== CARRUSEL 3D CON EFECTO PERSPECTIVE ========== */
 
 .carousel-container {
     perspective: 2000px;
@@ -232,76 +232,10 @@
     transform: scale(0.95);
 }
 
-/* ========== RESPONSIVE MÓVIL - CAMBIA A CARRUSEL HORIZONTAL CON SCROLL ========== */
+/* ========== RESPONSIVE (solo ajustes de tamaño, sin cambiar el comportamiento) ========== */
 @media (max-width: 768px) {
     .carousel-container {
-        perspective: none;
-        height: auto;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-    }
-    
-    .carousel-track {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        width: max-content;
-        transform: none;
-        transition: none;
-        position: static;
-        padding: 20px 15px;
-    }
-    
-    .carousel-item {
-        position: relative;
-        width: 280px;
-        height: auto;
-        min-height: 400px;
-        left: auto;
-        top: auto;
-        margin: 0;
-        transform: none !important;
-        opacity: 1 !important;
-        filter: blur(0) !important;
-        scroll-snap-align: start;
-        flex-shrink: 0;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .carousel-item:hover {
-        transform: translateY(-5px);
-    }
-    
-    .carousel-nav-controls {
-        display: none;
-    }
-    
-    .carousel-item .glass-card {
-        padding: 1rem;
-    }
-    
-    .carousel-item .job-title {
-        font-size: 1.1rem;
-    }
-    
-    .carousel-item .job-description {
-        font-size: 0.8rem;
-        margin-bottom: 1rem;
-    }
-    
-    .carousel-item .glowing-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.7rem;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .carousel-container {
-        height: 520px;
+        height: 500px;
     }
     
     .carousel-item {
@@ -312,22 +246,20 @@
     }
     
     .carousel-item.prev {
-        transform: translate3d(-240px, 0, -220px) rotateY(35deg);
+        transform: translate3d(-200px, 0, -200px) rotateY(35deg);
     }
     
     .carousel-item.next {
-        transform: translate3d(240px, 0, -220px) rotateY(-35deg);
-    }
-    
-    .carousel-item.hidden-left {
-        transform: translate3d(-500px, 0, -450px) rotateY(45deg);
-    }
-    
-    .carousel-item.hidden-right {
-        transform: translate3d(500px, 0, -450px) rotateY(-45deg);
+        transform: translate3d(200px, 0, -200px) rotateY(-35deg);
     }
     
     .carousel-item .job-title {
+        font-size: 1.1rem;
+    }
+    
+    .carousel-nav-btn {
+        width: 2.8rem;
+        height: 2.8rem;
         font-size: 1.2rem;
     }
 }
@@ -335,15 +267,16 @@
 @media (max-width: 480px) {
     .carousel-item {
         width: 260px;
-        min-height: 380px;
+        height: 380px;
+        margin-left: -130px;
+        margin-top: -190px;
     }
     
-    .carousel-track {
-        gap: 15px;
-        padding: 15px 12px;
+    .carousel-item.prev {
+        transform: translate3d(-140px, 0, -180px) rotateY(35deg);
     }
     
-    .carousel-item .glass-card {
-        padding: 0.9rem;
+    .carousel-item.next {
+        transform: translate3d(140px, 0, -180px) rotateY(-35deg);
     }
 }
