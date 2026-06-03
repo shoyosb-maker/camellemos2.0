@@ -1,14 +1,15 @@
-// ========== MÓDULO DE OFERTAS DE TRABAJO CON CARRUSEL 3D ==========
+// ========== MÓDULO DE OFERTAS DE TRABAJO CON CARRUSEL 3D Y SOPORTE TÁCTIL ==========
 import { log, escapeHtml } from '../core/utils.js';
 import { sendWhatsApp } from './whatsapp.js';
 
 let currentJobsData = [];
 let currentIndex = 0;
 let autoRotateInterval = null;
-let carouselInitialized = false;
+let touchStartX = 0;
+let touchEndX = 0;
 
 export async function initJobs() {
-    log('Inicializando módulo de trabajos con carrusel 3D...');
+    log('Inicializando módulo de trabajos con carrusel 3D y soporte táctil...');
     
     const container = document.getElementById('jobsContainer');
     if (!container) {
@@ -16,7 +17,6 @@ export async function initJobs() {
         return;
     }
     
-    // Mostrar loading
     container.innerHTML = `
         <div class="carousel-loading">
             <i class="fas fa-spinner"></i>
@@ -24,13 +24,8 @@ export async function initJobs() {
         </div>
     `;
     
-    // Cargar datos desde JSON
     await loadJobsData();
-    
-    // Configurar botones de categoría
     setupCategoryButtons();
-    
-    // Renderizar carrusel con categoría inicial (tecnologia)
     renderCarousel('tecnologia');
 }
 
@@ -42,7 +37,6 @@ async function loadJobsData() {
         log(`✅ Jobs data loaded: ${Object.keys(currentJobsData).length} categories`);
     } catch (error) {
         log(`Error loading jobs.json: ${error}`, 'error');
-        // Fallback con datos por defecto
         currentJobsData = {
             tecnologia: [{ title: "Ingeniero de Software Senior", location: "Remoto", description: "Oportunidad en empresa tech líder" }],
             marketing: [{ title: "Especialista SEO", location: "Remoto", description: "Únete al equipo de marketing digital" }],
@@ -57,12 +51,8 @@ function setupCategoryButtons() {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const career = btn.getAttribute('data-career');
-            
-            // Actualizar clase active
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
-            // Renderizar carrusel con la nueva categoría
             renderCarousel(career);
         });
     });
@@ -73,25 +63,13 @@ function renderCarousel(category) {
     const jobs = currentJobsData[category];
     
     if (!jobs || jobs.length === 0) {
-        container.innerHTML = `
-            <div class="carousel-empty">
-                <i class="fas fa-briefcase"></i>
-                <p>No hay ofertas disponibles en esta categoría</p>
-            </div>
-        `;
+        container.innerHTML = `<div class="carousel-empty"><i class="fas fa-briefcase"></i><p>No hay ofertas disponibles en esta categoría</p></div>`;
         return;
     }
     
-    // Detener auto-rotación anterior si existe
-    if (autoRotateInterval) {
-        clearInterval(autoRotateInterval);
-        autoRotateInterval = null;
-    }
-    
-    // Resetear índice
+    if (autoRotateInterval) clearInterval(autoRotateInterval);
     currentIndex = 0;
     
-    // Generar HTML del carrusel
     let cardsHtml = '';
     jobs.forEach((job, idx) => {
         let positionClass = '';
@@ -104,24 +82,13 @@ function renderCarousel(category) {
         cardsHtml += `
             <div class="carousel-item ${positionClass}" data-index="${idx}">
                 <div class="glass-card">
-                    ${job.image ? `
-                        <div class="job-image">
-                            <img src="${escapeHtml(job.image)}" alt="${escapeHtml(job.title)}" loading="lazy">
-                        </div>
-                    ` : `
-                        <div class="job-image" style="background: linear-gradient(135deg, #0B2B5E, #1E4A7A); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-briefcase" style="font-size: 3rem; color: rgba(255,255,255,0.5);"></i>
-                        </div>
-                    `}
+                    ${job.image ? `<div class="job-image"><img src="${escapeHtml(job.image)}" alt="${escapeHtml(job.title)}" loading="lazy"></div>` : 
+                    `<div class="job-image" style="background: linear-gradient(135deg, #0B2B5E, #1E4A7A); display: flex; align-items: center; justify-content: center;"><i class="fas fa-briefcase" style="font-size: 3rem; color: rgba(255,255,255,0.5);"></i></div>`}
                     <span class="job-category-badge">${getCategoryIcon(category)} ${getCategoryName(category)}</span>
                     <h3 class="job-title">${escapeHtml(job.title)}</h3>
-                    <div class="job-location">
-                        <i class="fas fa-map-marker-alt"></i> ${escapeHtml(job.location)}
-                    </div>
+                    <div class="job-location"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(job.location)}</div>
                     <p class="job-description">${escapeHtml(job.description || 'Excelente oportunidad profesional para crecer en tu carrera.')}</p>
-                    <button class="glowing-btn" data-job="${escapeHtml(job.title)}">
-                        📱 Aplicar vía WhatsApp
-                    </button>
+                    <button class="glowing-btn" data-job="${escapeHtml(job.title)}">📱 Aplicar vía WhatsApp</button>
                 </div>
             </div>
         `;
@@ -134,23 +101,16 @@ function renderCarousel(category) {
                     ${cardsHtml}
                 </div>
                 <div class="carousel-nav-controls">
-                    <button class="carousel-nav-btn" id="carouselPrevBtn3d">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-nav-btn" id="carouselNextBtn3d">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                    <button class="carousel-nav-btn" id="carouselPrevBtn3d"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-nav-btn" id="carouselNextBtn3d"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
     `;
     
     container.innerHTML = carouselHTML;
-    
-    // Inicializar eventos del carrusel
     initCarouselEvents(jobs);
     
-    // Agregar eventos a los botones de WhatsApp
     document.querySelectorAll('#carouselTrack3d .glowing-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -159,9 +119,7 @@ function renderCarousel(category) {
         });
     });
     
-    // Iniciar auto-rotación
     startAutoRotate(jobs);
-    
     log(`✅ Carrusel 3D renderizado con ${jobs.length} ofertas para: ${category}`);
 }
 
@@ -170,51 +128,50 @@ function initCarouselEvents(jobs) {
     const nextBtn = document.getElementById('carouselNextBtn3d');
     const prevBtn = document.getElementById('carouselPrevBtn3d');
     const carouselContainer = document.getElementById('carousel3d');
-    
     if (!items.length || !nextBtn || !prevBtn) return;
     
     function updateCarousel() {
         items.forEach((item, i) => {
-            // Reset clases
             item.classList.remove('active', 'prev', 'next', 'hidden-left', 'hidden-right');
-            
-            if (i === currentIndex) {
-                item.classList.add('active');
-            } else if (i === (currentIndex + 1) % items.length) {
-                item.classList.add('next');
-            } else if (i === (currentIndex - 1 + items.length) % items.length) {
-                item.classList.add('prev');
-            } else if (i < currentIndex) {
-                item.classList.add('hidden-left');
-            } else {
-                item.classList.add('hidden-right');
-            }
+            if (i === currentIndex) item.classList.add('active');
+            else if (i === (currentIndex + 1) % items.length) item.classList.add('next');
+            else if (i === (currentIndex - 1 + items.length) % items.length) item.classList.add('prev');
+            else if (i < currentIndex) item.classList.add('hidden-left');
+            else item.classList.add('hidden-right');
         });
     }
     
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCarousel();
+    function nextSlide() { 
+        currentIndex = (currentIndex + 1) % items.length; 
+        updateCarousel(); 
+        resetAutoRotate(jobs);
     }
     
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        updateCarousel();
+    function prevSlide() { 
+        currentIndex = (currentIndex - 1 + items.length) % items.length; 
+        updateCarousel(); 
+        resetAutoRotate(jobs);
     }
     
-    nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        nextSlide();
-        resetAutoRotate(jobs);
+    // Botones
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+    
+    // Swipe táctil
+    carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const deltaX = touchEndX - touchStartX;
+        if (Math.abs(deltaX) > 50) {
+            if (deltaX > 0) prevSlide();
+            else nextSlide();
+        }
     });
     
-    prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        prevSlide();
-        resetAutoRotate(jobs);
-    });
-    
-    // Click en tarjeta para navegar a ella
+    // Click en tarjeta
     items.forEach((item, i) => {
         item.addEventListener('click', () => {
             currentIndex = i;
@@ -223,18 +180,12 @@ function initCarouselEvents(jobs) {
         });
     });
     
-    // Pausar auto-rotación al hover
+    // Pausar auto-rotación al interactuar
     if (carouselContainer) {
-        carouselContainer.addEventListener('mouseenter', () => {
-            if (autoRotateInterval) {
-                clearInterval(autoRotateInterval);
-                autoRotateInterval = null;
-            }
-        });
-        
-        carouselContainer.addEventListener('mouseleave', () => {
-            startAutoRotate(jobs);
-        });
+        carouselContainer.addEventListener('mouseenter', () => { if (autoRotateInterval) clearInterval(autoRotateInterval); });
+        carouselContainer.addEventListener('mouseleave', () => startAutoRotate(jobs));
+        carouselContainer.addEventListener('touchstart', () => { if (autoRotateInterval) clearInterval(autoRotateInterval); });
+        carouselContainer.addEventListener('touchend', () => startAutoRotate(jobs));
     }
     
     updateCarousel();
@@ -242,52 +193,35 @@ function initCarouselEvents(jobs) {
 
 function startAutoRotate(jobs) {
     if (autoRotateInterval) clearInterval(autoRotateInterval);
-    
     autoRotateInterval = setInterval(() => {
         const items = document.querySelectorAll('#carouselTrack3d .carousel-item');
-        if (items.length > 0) {
+        if (items.length) {
             currentIndex = (currentIndex + 1) % items.length;
-            
-            // Actualizar clases visuales
             items.forEach((item, i) => {
                 item.classList.remove('active', 'prev', 'next', 'hidden-left', 'hidden-right');
-                if (i === currentIndex) {
-                    item.classList.add('active');
-                } else if (i === (currentIndex + 1) % items.length) {
-                    item.classList.add('next');
-                } else if (i === (currentIndex - 1 + items.length) % items.length) {
-                    item.classList.add('prev');
-                } else if (i < currentIndex) {
-                    item.classList.add('hidden-left');
-                } else {
-                    item.classList.add('hidden-right');
-                }
+                if (i === currentIndex) item.classList.add('active');
+                else if (i === (currentIndex + 1) % items.length) item.classList.add('next');
+                else if (i === (currentIndex - 1 + items.length) % items.length) item.classList.add('prev');
+                else if (i < currentIndex) item.classList.add('hidden-left');
+                else item.classList.add('hidden-right');
             });
         }
     }, 6000);
 }
 
-function resetAutoRotate(jobs) {
-    if (autoRotateInterval) {
-        clearInterval(autoRotateInterval);
-        startAutoRotate(jobs);
-    }
+function resetAutoRotate(jobs) { 
+    if (autoRotateInterval) { 
+        clearInterval(autoRotateInterval); 
+        startAutoRotate(jobs); 
+    } 
 }
 
-function getCategoryIcon(category) {
-    const icons = {
-        tecnologia: '💻',
-        marketing: '📊',
-        finanzas: '💰'
-    };
-    return icons[category] || '🎯';
+function getCategoryIcon(category) { 
+    const icons = { tecnologia: '💻', marketing: '📊', finanzas: '💰' }; 
+    return icons[category] || '🎯'; 
 }
 
-function getCategoryName(category) {
-    const names = {
-        tecnologia: 'Tecnología',
-        marketing: 'Marketing',
-        finanzas: 'Finanzas'
-    };
-    return names[category] || category;
+function getCategoryName(category) { 
+    const names = { tecnologia: 'Tecnología', marketing: 'Marketing', finanzas: 'Finanzas' }; 
+    return names[category] || category; 
 }
