@@ -1,0 +1,254 @@
+{
+    "tecnologia-it": [
+        {
+            "title": "Lead IT Engineer - Sistemas de Productividad",
+            "title_en": "Lead IT Engineer - Productivity Systems",
+            "location": "Remoto",
+            "description": "Lidera la automatización de sistemas empresariales y flujos de trabajo con IA. Experiencia en Java/Python, AWS y herramientas de integración como n8n.",
+            "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=225&fit=crop",
+            "category": "tecnologia-it"
+        },
+        {
+            "title": "Ingeniero IA (Python + LLM)",
+            "title_en": "IA Engineer (Python + LLM)",
+            "location": "Remoto",
+            "description": "Desarrolla agents de inteligencia artificial usando LangChain y Python. Integración de LLMs para soluciones innovadoras en la nube.",
+            "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=225&fit=crop",
+            "category": "tecnologia-it"
+        },
+        {
+            "title": "Ingeniero Java Senior",
+            "title_en": "Senior Java Engineer",
+            "location": "Remoto",
+            "description": "Desarrolla microservicios escalables con Java, Spring Boot y GCP. Experiencia en Kafka, BigQuery y arquitecturas cloud.",
+            "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=225&fit=crop",
+            "category": "tecnologia-it"
+        },
+        {
+            "title": "Desarrollador Python Junior",
+            "title_en": "Python Developer Junior",
+            "location": "Remoto",
+            "description": "Desarrollo backend con Python y frameworks modernos. Ideal para iniciar carrera en tecnología con mentoría y crecimiento profesional.",
+            "image": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&h=225&fit=crop",
+            "category": "tecnologia-it"
+        },
+        {
+            "title": "Desarrollador Back End",
+            "title_en": "Back End Developer",
+            "location": "Remoto",
+            "description": "Construcción de APIs y servicios backend escalables. Trabajo remoto con equipos internacionales y tecnologías de vanguardia.",
+            "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=225&fit=crop",
+            "category": "tecnologia-it"
+        }
+    ],
+    "marketing": [
+        {
+            "title": "Email Campaign Manager",
+            "title_en": "Email Campaign Manager",
+            "location": "Remoto",
+            "description": "Gestiona campañas de email marketing a gran escala usando Adobe Campaign. Requiere HTML/CSS, SQL y experiencia en automatización.",
+            "image": "https://images.unsplash.com/photo-1557838923-2985c318be48?w=400&h=225&fit=crop",
+            "category": "marketing"
+        },
+        {
+            "title": "Especialista en Redes Sociales",
+            "title_en": "Social Media Specialist",
+            "location": "Remoto",
+            "description": "Crea estrategias B2B en LinkedIn y YouTube. Gestión de contenido orgánico y campañas pagadas para aumentar engagement.",
+            "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=225&fit=crop",
+            "category": "marketing"
+        },
+        {
+            "title": "Especialista en Contenido Digital ES - Interfell",
+            "title_en": "Digital Content Specialist ES - Interfell",
+            "location": "Remoto",
+            "description": "Crea contenido estratégico en español para audiencias LATAM. Manejo de blogs, redes sociales y SEO.",
+            "image": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&h=225&fit=crop",
+            "category": "marketing"
+        },
+        {
+            "title": "Asistente de Marketing Digital (Latinoamérica)",
+            "title_en": "Digital Marketing Assistant (Latin America)",
+            "location": "Remoto",
+            "description": "Apoya estrategias de marketing digital multicanal. Ideal para profesionales organizados con pasión por el crecimiento digital.",
+            "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=225&fit=crop",
+            "category": "marketing"
+        },
+        {
+            "title": "Especialista en Generación de Leads",
+            "title_en": "Lead Generation Specialist",
+            "location": "Remoto",
+            "description": "Prospección y calificación de leads B2B mediante LinkedIn y otras plataformas. Enfoque en ventas consultivas.",
+            "image": "https://images.unsplash.com/photo-1552581234-26160f608093?w=400&h=225&fit=crop",
+            "category": "marketing"
+        }
+    ],
+    "comercial": [
+        {
+            "title": "Gerente de Ventas Regional - São Paulo",
+            "title_en": "Regional Sales Manager - São Paulo",
+            "location": "São Paulo, Brasil (Remoto)",
+            "description": "Lidera estrategias comerciales en Brasil, gestionando distribuidores y canales. Enfoque en ventas B2B de ciberseguridad.",
+            "image": "https://images.unsplash.com/photo-1552581234-26160f608093?w=400&h=225&fit=crop",
+            "category": "comercial"
+        },
+        {
+            "title": "Agente Comercial",
+            "title_en": "Commercial Agent",
+            "location": "Remoto",
+            "description": "Prospección y cierre de ventas B2B remoto. Gestión de CRM y seguimiento a clientes potenciales.",
+            "image": "https://images.unsplash.com/photo-1554224155-8c0b5e1d6e8f?w=400&h=225&fit=crop",
+            "category": "comercial"
+        },
+        {
+            "title": "Representante de Desarrollo de Ventas – Enterprise Outbound (LATAM)",
+            "title_en": "Sales Development Representative – Enterprise Outbound (LATAM)",
+            "location": "Latinoamérica (Remoto)",
+            "description": "Prospección outbound para cuentas enterprise. Llamadas en frío y calificación de oportunidades para pipeline de ventas.",
+            "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=225&fit=crop",
+            "category": "comercial"
+        },
+        {
+            "title": "Ejecutivo de Ventas - LinkedIn Sales Solutions",
+            "title_en": "Sales Executive - LinkedIn Sales Solutions",
+            "location": "Remoto",
+            "description": "Venta de Sales Navigator a clientes SMB. Planificación territorial y cumplimiento de cuotas en entorno SaaS.",
+            "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=225&fit=crop",
+            "category": "comercial"
+        },
+        {
+            "title": "Gerente de Ventas por Zona - Brasil",
+            "title_en": "Area Sales Manager - Brazil",
+            "location": "Santos, São Paulo (Remoto)",
+            "description": "Gestión de crecimiento comercial y alianzas estratégicas en Brasil. Experiencia en ventas B2B y negociación.",
+            "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=225&fit=crop",
+            "category": "comercial"
+        }
+    ],
+    "finanzas": [
+        {
+            "title": "Analista Senior de Riesgo de Fraude",
+            "title_en": "Senior Fraud Risk Analyst",
+            "location": "Remoto",
+            "description": "Análisis y prevención de fraudes financieros. Modelamiento de riesgos e implementación de controles internos.",
+            "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=225&fit=crop",
+            "category": "finanzas"
+        },
+        {
+            "title": "Analista Financiero (Colombia)",
+            "title_en": "Financial Analyst (Colombia)",
+            "location": "Colombia (Remoto)",
+            "description": "Modelos financieros, forecasting y reporting. Soporte a decisiones estratégicas con Excel avanzado e inglés B2+.",
+            "image": "https://images.unsplash.com/photo-1554224154-26032ffc0a07?w=400&h=225&fit=crop",
+            "category": "finanzas"
+        },
+        {
+            "title": "Contador Tributario Senior",
+            "title_en": "Senior Tax Accountant",
+            "location": "Remoto",
+            "description": "Planificación fiscal y liquidación de impuestos corporativos. Experiencia en consultoría tributaria y cumplimiento normativo.",
+            "image": "https://images.unsplash.com/photo-1554224154-26032ffc0a07?w=400&h=225&fit=crop",
+            "category": "finanzas"
+        },
+        {
+            "title": "Asistente Contable | $5/hr | Clientes Americanos",
+            "title_en": "Accounting Assistant | $5/hr | American Clients",
+            "location": "Remoto",
+            "description": "Registro contable, conciliaciones bancarias y facturación para clientes USA. Trabajo remoto con horario flexible.",
+            "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=225&fit=crop",
+            "category": "finanzas"
+        },
+        {
+            "title": "Analista Junior de Riesgo y Cumplimiento | Colombia",
+            "title_en": "Junior Risk & Compliance Analyst | Colombia",
+            "location": "Colombia (Remoto)",
+            "description": "Análisis de riesgos, cumplimiento normativo y soporte a equipos comerciales. Experiencia en datos estructurados y compliance.",
+            "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=225&fit=crop",
+            "category": "finanzas"
+        }
+    ],
+    "administracion": [
+        {
+            "title": "Administrador Salesforce - Revenue Ops",
+            "title_en": "Salesforce Administrator - Revenue Ops",
+            "location": "Remoto",
+            "description": "Administra workflows, reportes y dashboards en Salesforce. Integración con herramientas de ventas y QA testing.",
+            "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=225&fit=crop",
+            "category": "administracion"
+        },
+        {
+            "title": "Asistente Administrativo de Seguros - Remoto",
+            "title_en": "Insurance Admin/Back-office Assistant - Remote",
+            "location": "Remoto",
+            "description": "Gestión de pólizas de seguros, certificados y data entry para clientes USA. Inglés C1/C2 requerido.",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=225&fit=crop",
+            "category": "administracion"
+        },
+        {
+            "title": "Analista Administrativo del Área Comercial",
+            "title_en": "Administrative Analyst - Commercial Area",
+            "location": "Remoto",
+            "description": "Soporte administrativo al equipo comercial. Gestión de cotizaciones, seguimiento a clientes y CRM.",
+            "image": "https://images.unsplash.com/photo-1554224155-8c0b5e1d6e8f?w=400&h=225&fit=crop",
+            "category": "administracion"
+        },
+        {
+            "title": "Gerente de Operaciones | Colombia",
+            "title_en": "Operations Manager | Colombia",
+            "location": "Colombia (Remoto)",
+            "description": "Lidera operaciones de clientes, construcción de sistemas escalables y gestión de equipos remotos.",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=225&fit=crop",
+            "category": "administracion"
+        },
+        {
+            "title": "Especialista en Proyectos y Compras de Diseño",
+            "title_en": "Project & Design Procurement Specialist",
+            "location": "Remoto",
+            "description": "Gestión de presupuestos, proveedores y procurement para proyectos de construcción y hotelería.",
+            "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=225&fit=crop",
+            "category": "administracion"
+        }
+    ],
+    "redes-sociales": [
+        {
+            "title": "Líder de Crecimiento y Contenido en Redes Sociales",
+            "title_en": "Social Media Growth & Content Lead",
+            "location": "Remoto",
+            "description": "Lidera estrategias de crecimiento en Instagram, TikTok y LinkedIn. Creación de contenido viral y análisis de métricas.",
+            "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=225&fit=crop",
+            "category": "redes-sociales"
+        },
+        {
+            "title": "Social Media Manager Colombia",
+            "title_en": "Social Media Manager CO",
+            "location": "Colombia (Remoto)",
+            "description": "Gestiona comunidades digitales para marcas en Colombia. Creación de calendarios, engagement y reporting.",
+            "image": "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=400&h=225&fit=crop",
+            "category": "redes-sociales"
+        },
+        {
+            "title": "Gerente de Redes Sociales y Marketing Digital",
+            "title_en": "Social Media & Digital Marketing Manager",
+            "location": "Remoto",
+            "description": "Estrategia integral de marketing digital y social media. Enfoque en generación de leads y branding.",
+            "image": "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=400&h=225&fit=crop",
+            "category": "redes-sociales"
+        },
+        {
+            "title": "Especialista en Marketing Digital y Contenido - LATAM",
+            "title_en": "Digital Marketing & Content Specialist - LATAM",
+            "location": "Latinoamérica (Remoto)",
+            "description": "Influencer marketing, Meta Ads y TikTok Ads. Gestión de campañas pagadas y contenido para marcas en USA.",
+            "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=225&fit=crop",
+            "category": "redes-sociales"
+        },
+        {
+            "title": "Asistente Bilingüe de Marketing y Redes Sociales - LATAM",
+            "title_en": "Bilingual Marketing & Social Media Assistant - LATAM",
+            "location": "Latinoamérica (Remoto)",
+            "description": "Crea contenido bilingüe para LinkedIn, Instagram y Facebook. Manejo de Canva, programación y email marketing.",
+            "image": "https://images.unsplash.com/photo-1557838923-2985c318be48?w=400&h=225&fit=crop",
+            "category": "redes-sociales"
+        }
+    ]
+}

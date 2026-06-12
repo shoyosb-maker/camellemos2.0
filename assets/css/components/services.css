@@ -1,0 +1,202 @@
+/* ========== TARJETAS DE SERVICIOS CON EFECTO FLIP 3D ========== */
+
+/* Grid contenedor */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin: 50px 0;
+    padding: 0;
+}
+
+/* Contenedor de cada tarjeta con perspectiva 3D */
+.service-card-container {
+    background-color: transparent;
+    width: 100%;
+    height: 320px;
+    perspective: 1500px;
+    cursor: pointer;
+}
+
+/* Tarjeta con efecto flip */
+.service-card-flip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    transform-style: preserve-3d;
+    border-radius: 28px;
+}
+
+/* Efecto hover: voltea la tarjeta */
+.service-card-container:hover .service-card-flip {
+    transform: rotateY(180deg);
+}
+
+/* Caras de la tarjeta (frontal y trasera) */
+.service-card-front, .service-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 28px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+/* CARA FRONTAL */
+.service-card-front {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-card-front i {
+    font-size: 3rem;
+    color: #F59E0B;
+    margin-bottom: 20px;
+    background: rgba(245, 158, 11, 0.12);
+    width: 85px;
+    height: 85px;
+    line-height: 85px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.service-card-container:hover .service-card-front i {
+    background: #F59E0B;
+    color: white;
+    transform: scale(1.05);
+}
+
+.service-card-front h3 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    color: #0B2B5E;
+    font-weight: 700;
+}
+
+.service-card-front p {
+    font-size: 0.9rem;
+    color: #5a6874;
+    line-height: 1.5;
+}
+
+/* CARA TRASERA (se muestra al voltear) */
+.service-card-back {
+    background: linear-gradient(135deg, #0B2B5E, #1E4A7A);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.service-card-back h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #F59E0B;
+}
+
+.service-card-back p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.service-card-back ul {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.service-card-back li {
+    padding: 6px 0;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-card-back li i {
+    color: #F59E0B;
+    width: 20px;
+    font-size: 0.8rem;
+}
+
+.service-card-back .btn-flip {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.service-card-back .btn-flip:hover {
+    background: #F59E0B;
+    color: #0B2B5E;
+    border-color: #F59E0B;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .services-grid {
+        gap: 25px;
+        margin: 35px 0;
+    }
+    
+    .service-card-container {
+        height: 340px;
+    }
+    
+    .service-card-front, .service-card-back {
+        padding: 25px 18px;
+    }
+    
+    .service-card-front i {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 2.5rem;
+    }
+    
+    .service-card-front h3 {
+        font-size: 1.2rem;
+    }
+    
+    .service-card-back h4 {
+        font-size: 1.1rem;
+    }
+    
+    .service-card-back p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card-container {
+        height: 350px;
+    }
+}
